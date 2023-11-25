@@ -6,32 +6,36 @@ The scripts in this package simply analze the data and meausre the various metri
 
 ## Json File Format
 An example json file is present in the *data* folder. It has the following entries.
-| Class            | Attribute      | Type                 | Description                                                                                     |
-|------------------|----------------|----------------------|------------------------------------|                                         |
-| `GolfData`       | `video_spec`   | `VideoSpec`          | The video specifications.                                                                       |
-|                  | `video_input`  | `VideoInput`         | Information about the video input.                                                              |
-|                  | `num_frames`   | `int`                | The number of frames in the video analysis.                                                     |
-|                  | `pose_result`  | `PoseResult`         | The result of the pose analysis.                                                                |
-|                  | `club_head_result` | `ClubHeadResult` | Results of the club head analysis.                                                             |
-|                  | `mp_result`    | `List[List[float]]`  | Multi-dimensional list representing additional analysis results.                                |
+
+
+| Class            | Attribute      | Type                 | Description   |   
+|------------------|----------------|----------------------|---------------|          
+| `GolfData`       | `video_spec`   | `VideoSpec`          | The video specifications. |
+|                  | `video_input`  | `VideoInput`         | Information about the video input.|
+|                  | `num_frames`   | `int`                | The number of frames in the video analysis.|
+|                  | `pose_result`  | `PoseResult`         | The result of the pose analysis.|                                                              
+|                  | `club_head_result` | `ClubHeadResult` | Results of the club head analysis.|                                                            
+|                  | `mp_result`    | `List[List[float]]`  | Multi-dimensional list representing additional analysis results. |                               
 
 
 Each of the child dict definitons are below.
 
-| Class            | Attribute      | Type                 | Description                                                                                  |
+| Class            | Attribute      | Type                 |Description                      |
 |------------------|----------------|----------------------|---------------------------------|
-| `VideoSpec`      | `height`       | `int`                | The height of the video in pixels.                                                              |
-|                  | `width`        | `int`                | The width of the video in pixels.                                                               |
-|                  | `num_frames`   | `int`                | The number of frames in the video.                                                              |
-|                  | `fps`          | `int`                | The frames per second rate of the video.                                                         |
-|                  | `scale`        | `int`                | The scale factor used for the video.                                                            |
-|                  | `rotate`       | `str`                | The rotation setting for the video, if any.                                                     |
-| `VideoInput`     | `fname`        | `str`                | The file name of the video.                                                                     |
-|                  | `size`         | `int`                | The size of the video file in bytes.                                                            |
-| `PoseResult`     | `poses`        | `List[str]`          | A list of identified poses.                                                                     |
-|                  | `handed`       | `str`                | Information on whether the subject is left or right-handed, or 'Unknown'.                       |
-| `ClubHeadResult` | `norm_points`  | `List[List[float]]`  | Normalized points representing the position of the club head.                                   |
-|                  | `algos`        | `List[str]`          | List of algorithms used for analyzing the club 
+| `VideoSpec`      | `height`       | `int`                | The height of the video in pixels.|
+|                  | `width`        | `int`                | The width of the video in pixels. |
+|                  | `num_frames`   | `int`                | The number of frames in the video.|
+|                  | `fps`          | `int`                | The frames per second rate of the video.|
+|                  | `scale`        | `int`                | The scale factor used for the video.|
+|                  | `rotate`       | `str`                | The rotation setting for the video, if any.|
+| `VideoInput`     | `fname`        | `str`                | The file name of the video.|
+|                  | `size`         | `int`                | The size of the video file in bytes.|
+| `PoseResult`     | `poses`        | `List[str]`          | A list of identified poses.|
+|                  | `handed`       | `str`                | Information on whether the subject is left or right-handed, or 'Unknown'.|
+| `ClubHeadResult` | `norm_points`  | `List[List[float]]`  | Normalized points representing the position of the club head.|
+|                  | `algos`        | `List[str]`          | List of algorithms used for analyzing the club. |
+
+
 ## Installation
 Installs as a standard python package using PIP.
 
