@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="golftrainer",
-    version="0.0.1",
+    version="0.0.2",
     description="Analyze a golf swing looking at critical points.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -22,10 +22,10 @@ setup(
     author_email="snjvsingh123@gmail.com",
     entry_points={
         'console_scripts' : [
-            'golfmodel1=golftrainer.golfmodel1:main'
+            'golf_trainer=scripts.golf_trainer:main',
         ]
     },
-    install_requires = ['opencv-python'],
+    install_requires = ['pandas', 'numpy'],
     packages = ['golftrainer'],
     extras_require = {
         "dev": [
