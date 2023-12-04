@@ -21,6 +21,11 @@ class PoseResult:
     handed: str
 
 @dataclass
+class MpResult:
+    landmarks: List[str]
+    norm_points: List[List[float]]
+
+@dataclass
 class ClubHeadResult:
     norm_points: List[List[float]]
     algos: List[str]
@@ -32,4 +37,4 @@ class GolfData:
     num_frames: int
     pose_result: PoseResult
     club_head_result: ClubHeadResult
-    mp_result: List[List[float]]
+    mp_result: MpResult
