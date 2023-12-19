@@ -1,0 +1,57 @@
+@startuml
+class GolfData {
+    - version: float
+    - video_spec: VideoSpec
+    - video_input: VideoInput
+    - num_frames: int
+    - pose_result: PoseResult
+    - club_head_result: ClubHeadResult
+    - mp_result: MpResult
+    + mp_data_frame(): MediaPipePandasFrame
+    + norm_data_frame(): PandasFrameForNormPoints
+    + sreen_data_frame(): PandasFrameForScreenCoordinate
+    + cart_data_frame(): PandasFrameForCartesian
+}
+
+class VideoSpec {
+    - height: int
+    - width: int
+    - num_frames: int
+    - fps: int
+    - scale: int
+    - rotate: string
+}
+
+class VideoInput {
+    - fname: string
+    - size: int
+}
+
+class PoseResult {
+    - poses: list
+    - handed: string
+}
+
+class ClubHeadResult {
+    - norm_points: list
+    - algos: list
+}
+
+class MpResult {
+    - landmarks: list
+    - norm_points: list
+}
+
+class Factory {
+    + create_golf_data_s(json_data: string): GolfData
+}
+
+GolfData "1" -- "1" VideoSpec
+GolfData "1" -- "1" VideoInput
+GolfData "1" -- "1" PoseResult
+GolfData "1" -- "1" ClubHeadResult
+GolfData "1" -- "1" MpResult
+
+Factory --> GolfData: Creates
+
+@enduml

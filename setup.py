@@ -1,11 +1,12 @@
 from setuptools import setup
+from golftrainer.__version__ import __version__
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
     name="golftrainer",
-    version="0.0.2",
+    version=__version__,
     description="Analyze a golf swing looking at critical points.",
     long_description=long_description,
     long_description_content_type="text/markdown",

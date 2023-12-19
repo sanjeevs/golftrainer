@@ -1,8 +1,8 @@
 from golftrainer import factory
-from golftrainer import golf_data_frame_builder as df_builder
 
 json_data = """
 {
+    "version" : 1.1,
     "video_spec": {
         "height": 768,
         "width": 432,
@@ -217,9 +217,7 @@ def test_load1():
 
 def test_mp_norm_df():
     gd = factory.create_golf_data_s(json_data)
-
-    builder = df_builder.GolfDataFrameBuilder(gd)
-    df = builder.mp_norm_frame()
+    df = gd.mp_data_frame()
     exp_cols = len(gd.mp_result.landmarks) * 4
     assert df.shape[1] == exp_cols
     assert df.columns[0] == "nose_x"
@@ -227,9 +225,7 @@ def test_mp_norm_df():
 
 def test_tracker_screen_df():
     gd = factory.create_golf_data_s(json_data)
-    
-    builder = df_builder.GolfDataFrameBuilder(gd)
-    df = builder.tracker_screen_frame()
+    df = gd.screen_data_frame()
     exp_cols = len(gd.mp_result.landmarks) * 2 + 2
     assert df.shape[1] == exp_cols
     assert df.shape[0] == 1
@@ -240,9 +236,7 @@ def test_tracker_screen_df():
   
 def test_tracker_cart_df():
     gd = factory.create_golf_data_s(json_data)
-    
-    builder = df_builder.GolfDataFrameBuilder(gd)
-    df = builder.tracker_cart_frame()
+    df = gd.cart_data_frame()
     exp_cols = len(gd.mp_result.landmarks) * 2 + 2
     assert df.shape[1] == exp_cols
     assert df.shape[0] == 1
