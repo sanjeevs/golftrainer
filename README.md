@@ -8,15 +8,33 @@ The structure of the *GolfData* class is shown below.
 
 ![GolfData](docs/images/golf_data.png)
 
+## Development
+
+Create a virtual env and then clone this directory.
+Recreate the development env
+
+```
+pip install -r requirements.txt
+```
+
+Install the package locally
+
+```
+pip install -e .
+```
+
+
 ## Installation
 Install the package in your virtual env.
+
+** This is still under developement. Not released yet. **
 
 ```
 pip install golftrainer
 ```
 
 ## Demo
-For this purpose we will use **data/demo.json** as an example. This file is same as "00001.json" from the below google drive.
+For this purpose we will use **data/00001.json** as an example. 
 
 ### Setup Jupyter Notebook
 To make the notebook run under my virtual env (say 'venv'), follow the following steps.
@@ -44,5 +62,9 @@ Once we have the notebook the following commands we can use the GolfData object 
 
 
 ## Generated Data
-Various sample golf swing videos shot down the line on a right handed golf player with the corresponding json file are stored in this [GoogleDrive](https://drive.google.com/drive/folders/1TDUnGjP1wh1gZeN1EZdJOO4AeYuMLnkO?usp=sharing). Each video file (either a mp4 or mov) has 2 output files. The ".pkl" is the pickle database and ".json" is the file that we will use for this package to measure the various metrics associated with the swing.
+Various sample golf swing videos shot down the line on a right handed golf player with the corresponding json file are stored in this [GoogleDrive](https://drive.google.com/drive/folders/1TDUnGjP1wh1gZeN1EZdJOO4AeYuMLnkO?usp=sharing). 
 
+Each video file (either a mp4 or mov) has 2 output files. The ".pkl" is the pickle database and ".json" is the file that we will use for this package to measure the various metrics associated with the swing.
+
+
+Copies of the json file from google drive are checked into the data directory and has a corresponding notebook in notebooks/demo area.
