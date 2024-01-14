@@ -113,3 +113,30 @@ class GolfData:
                 scaled_df.iloc[:, i] = ((1 - norm_frame.iloc[:, i]) * height).astype(int)
                 
         return scaled_df
+
+    def point_xy_data_frame(self, df, col_name, smooth=1):
+        """Return data frame for a point from the data frame.
+           The col names are x, y and data is int.
+        """
+        points_df =  df[[f"{col_name}_x", f"{col_name}_y"]].rename(
+                columns={ 
+                            f"{col_name}_x": "x",
+                            f"{col_name}_y": "y"
+                        }
+                ).astype(int)
+
+        if smooth > 0 and not points_df.empty:
+            points = list(zip(points_df['x'], points_df['y']))
+            filtered_points = [points[0]]
+            for pt in points[1:]:
+                last_point = filtered_points[-1]
+                x_diff = abs(pt[0] - last_point[0])
+                y_diff = abs(pt[1] - last_point[1])
+                if x_diff > smooth or y_diff > smooth:
+                    filtered_points.append(pt)
+                else:
+                    filtered_points.append(last_point)
+            filtered_df = pd.DataFrame(filtered_points, columns=['x', 'y'])
+            return filtered_df
+        else:
+            return points_df

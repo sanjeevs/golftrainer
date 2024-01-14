@@ -2,7 +2,7 @@ from golftrainer import factory
 import os
 
 def test_load():
-    json_fname = os.path.join("data", "demo.json")
+    json_fname = os.path.join("data", "00001.json")
     gd = factory.create_golf_data(json_fname)
     assert gd.version == 1.0
     assert gd.video_spec.height == 768
@@ -13,7 +13,7 @@ def test_load():
     
 
 def test_data_frame():
-    json_fname = "data/demo.json"
+    json_fname = "data/00001.json"
     gd = factory.create_golf_data(json_fname)
     df = gd.screen_data_frame()
     num_rows, num_cols = df.shape

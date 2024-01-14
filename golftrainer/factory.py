@@ -14,7 +14,7 @@ def create_golf_data_s(json_data):
 
     # Creating an instance of GolfData from the parsed data
     inst = gd.GolfData(
-        version = parsed_data["version"],
+        version = parsed_data.get("version", 0),
         video_spec=gd.VideoSpec(**parsed_data["video_spec"]),
         video_input=gd.VideoInput(**parsed_data["video_input"]),
         num_frames=parsed_data["num_frames"],
