@@ -15,7 +15,7 @@ class SwingAnalysis:
 
     def swing_phases(self, ext_angle=100):
         """Returns a dict that represents the index of the various phases."""
-        angles = [0 if x is None else x for x in geom.get_angles(geom.get_vectors(self.ch))]
+        angles = geom.unity_vec_angles(geom.unity_vectors(self.ch))
     
         indices = [index for index, value in enumerate(angles) if value > ext_angle]
 
